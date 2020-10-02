@@ -26,6 +26,11 @@ namespace Demo.Jwt
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //配置Mvc
+            services.AddMvc(options => { options.EnableEndpointRouting = false; })
+                    .SetCompatibilityVersion(CompatibilityVersion.Version_3_0)
+                        ;
+
             //添加策略鉴权模式
             services.AddAuthorization(options =>
             {
